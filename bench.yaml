@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: bench
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: bench
+    spec:
+      hostNetwork: true
+      containers:
+      - name: bench
+        image: appropriate/nc
+        args: ["%placeholder%", "15000"]
